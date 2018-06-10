@@ -1,0 +1,6 @@
+<button *ngIf="checkInsert()" (click)="setFalseInsert()" class="btn btn-link">
+  {{insertMessage}}
+</button>
+<button *ngIf="checkUpdate()" (click)="setFalseUpdate()" class="btn btn-link">
+  {{updateMessage}}	
+</button>
