@@ -25,12 +25,13 @@ export class ModelService {
     return this.http.get<Model[]>(this.url);
   }
 
+  // Update
   putData(model: Model, username: string): Observable<Model> {
     let url = this.url + '/' + username;
     return this.http.put<Model>(url, model);
-
   }
 
+  // Delete 
   deleteData(username: string): Observable<Model> {
     let url = this.url + '/' + username;
     return this.http.delete<Model>(url);
