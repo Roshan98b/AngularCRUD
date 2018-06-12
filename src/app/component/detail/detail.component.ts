@@ -34,19 +34,25 @@ export class DetailComponent implements OnInit {
 
   onDelete(i: Model) {
     this.messageService.setUpdateMessage('Delete Successfull');
-    this.response = this.modelService.deleteData(i.id);
+    this.modelService.deleteData(i.username).subscribe(() =>{
+      this.response = true;
+      this.getModel();
+    },
+    (err) => {
+
+    });
   }
 
   onSubmit(selform: NgForm) {
     this.messageService.setUpdateMessage('Update Successfull');
-    this.response = this.modelService.putData(selform.form.value, this.modelService.selectedInsert.id);
+    this.modelService.putData(selform.form.value, this.modelService.selectedInsert.username).subscribe(() => {
+        this.response = true;
+        this.getModel();
+    },
+    (err) => {
+
+    });
     this.responseEdit = false;
   }
-
-
-  // setFalse() {
-  //   this.response = false;
-  // }
-
 
 }
